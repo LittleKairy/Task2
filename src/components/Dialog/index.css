@@ -1,0 +1,41 @@
+.dialog-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.dialog-container .block {
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.dialog-container .block .btns {
+  margin-top: 2em;
+  display: flex;
+  justify-content: space-around;
+}
+
+.dialog-container .block .btns button {
+  border: 1px solid #999;
+  border-radius: 5px;
+  background-color: #c3d6f2;
+  cursor: pointer;
+  width: 50px;
+  padding: 5px 10px;
+}
+
+.dialog-container .block .btns button:hover {
+  background-color: rgb(167, 186, 214);
+  color: #fff;
+}

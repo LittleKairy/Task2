@@ -1,0 +1,17 @@
+.layout-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.layout-container .left {
+  flex: 0 0 200px;
+  background: #c3d6f2;
+  padding: 30px 0;
+}
+
+.layout-container .main {
+  flex: 1 1 auto;
+  background: #d1eaf5;
+  padding: 20px;
+}
