@@ -14,4 +14,5 @@
 .list-item:hover {
   background: #96b0d7;
   color: #fff;
+  cursor: pointer;
 }

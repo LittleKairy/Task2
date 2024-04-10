@@ -2,6 +2,7 @@ import Layout from "./components/Layout";
 import Card from "./components/Card";
 import Dialog from "./components/Dialog";
 import { useEffect, useState } from "react";
+import Mock from "mockjs";
 
 function App() {
   // 布局左侧菜单项
@@ -14,49 +15,42 @@ function App() {
 
   const [cardList, setCardList] = useState([]);
   const [showDialog, setShowDialog] = useState(false);
-  const [curTitle, setCurTitle] = useState();
+  const [curArticle, setCurArticle] = useState({});
 
   useEffect(() => {
     // 模拟从服务器获取数据
-    // fetch("")
-    //   .then((resp) => resp.json())
+    // fetch("/api/article")
+    //   .then((resp) => {
+    //     console.log(resp);
+    //     resp.json();
+    //   })
     //   .then((data) => {
-    //     setCardList(data);
+    //     // setCardList(data);
+    //     console.log(data);
     //   });
 
-    setCardList([
-      {
-        title: "A",
-        content:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illo quia soluta ipsam aut error incidunt vel dicta minima. Ullam quae illum temporibus, ad voluptatibus suscipit nobis dicta deleniti ut?",
-      },
-      {
-        title: "B",
-        content:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illo quia soluta ipsam aut error incidunt vel dicta minima. Ullam quae illum temporibus, ad voluptatibus suscipit nobis dicta deleniti ut?",
-      },
-      {
-        title: "C",
-        content:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illo quia soluta ipsam aut error incidunt vel dicta minima. Ullam quae illum temporibus, ad voluptatibus suscipit nobis dicta deleniti ut?",
-      },
-      {
-        title: "D",
-        content:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illo quia soluta ipsam aut error incidunt vel dicta minima. Ullam quae illum temporibus, ad voluptatibus suscipit nobis dicta deleniti ut?",
-      },
-    ]);
+    const mockData = Mock.mock({
+      "article|10-20": [
+        {
+          id: "@uuid",
+          title: "@ctitle(5, 10)",
+          content: "@cparagraph",
+          url: "@url",
+        },
+      ],
+    });
+    setCardList(mockData.article);
   }, []);
 
-  const clickHandler = (title) => {
+  const clickHandler = (article) => {
     // console.log(title);
     setShowDialog(true);
-    setCurTitle(title);
+    setCurArticle(article);
   };
 
   const dialogClickHandler = (show, isYes) => {
     setShowDialog(show);
-    if (isYes) window.open(""); // 模拟链接打开
+    if (isYes) window.open(curArticle.url); // 模拟链接打开
   };
 
   return (
@@ -64,17 +58,12 @@ function App() {
       <Layout leftList={leftList}>
         {cardList.map((item, index) => {
           return (
-            <Card
-              key={index}
-              title={item.title}
-              content={item.content}
-              clickHandler={clickHandler}
-            />
+            <Card key={index} article={item} clickHandler={clickHandler} />
           );
         })}
       </Layout>
       {showDialog ? (
-        <Dialog changeDiaglogShow={dialogClickHandler} title={curTitle} />
+        <Dialog changeDiaglogShow={dialogClickHandler} article={curArticle} />
       ) : null}
     </div>
   );

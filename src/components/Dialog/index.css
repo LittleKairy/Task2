@@ -8,8 +8,9 @@
 }
 
 .dialog-container .block {
-  width: 200px;
-  height: 100px;
+  width: 278px;
+  height: 124px;
+
   position: absolute;
   top: 50%;
   left: 50%;
@@ -18,21 +19,55 @@
   background: #fff;
   padding: 20px;
   border-radius: 5px;
+  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dialog-container .block .icon-cancle {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  color: rgb(218, 106, 106);
+  cursor: pointer;
+}
+
+.dialog-container .block .title {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5em;
+}
+
+.dialog-container .block .title .icon-info {
+  vertical-align: bottom;
+  color: #ccc;
+  margin-right: 5px;
+}
+
+.dialog-container .block .title p {
+  color: #535353;
+  font-size: 0.9em;
+}
+
+.dialog-container .block .title p span {
+  color: rgb(74, 111, 171);
 }
 
 .dialog-container .block .btns {
-  margin-top: 2em;
   display: flex;
-  justify-content: space-around;
+  justify-content: right;
 }
 
 .dialog-container .block .btns button {
+  color: #535353;
   border: 1px solid #999;
   border-radius: 5px;
   background-color: #c3d6f2;
   cursor: pointer;
   width: 50px;
   padding: 5px 10px;
+  margin: 0 5px;
 }
 
 .dialog-container .block .btns button:hover {

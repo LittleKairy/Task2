@@ -13,7 +13,16 @@ export default function Dialog(props) {
   return (
     <div className="dialog-container">
       <div className="block">
-        <p className="title">确定跳转至{props.title}吗</p>
+        <i
+          className="icon-cancle iconfont icon-cancel-test"
+          onClick={handleClickNo}
+        ></i>
+        <div className="title">
+          <i className="icon-info iconfont icon-tishi"></i>
+          <p>
+            确定跳转至<span> {props.article.title} </span>吗？
+          </p>
+        </div>
 
         <div className="btns">
           <button onClick={handleClickNo}>no</button>

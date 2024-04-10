@@ -2,20 +2,20 @@ import React from "react";
 import "./index.css";
 
 export default function Card(props) {
-  const handleClick = (title) => {
+  const handleClick = (article) => {
     // console.log(title);
-    props.clickHandler(title);
+    props.clickHandler(article);
   };
 
   return (
     <div
       className="card-container"
       onClick={() => {
-        handleClick(props.title);
+        handleClick(props.article);
       }}
     >
-      <p className="title">{props.title}</p>
-      <p className="content">{props.content}</p>
+      <p className="title">{props.article.title}</p>
+      <p className="content">{props.article.content}</p>
     </div>
   );
 }

@@ -14,4 +14,5 @@
   flex: 1 1 auto;
   background: #d1eaf5;
   padding: 20px;
+  overflow-y: scroll;
 }
